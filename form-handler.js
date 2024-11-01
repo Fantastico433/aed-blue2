@@ -37,4 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
             formSuccess.style.display = "none";
         }
     });
+    const contactButton = document.getElementById('scrollToContact');
+contactButton.addEventListener('click', () => {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+});
+
+
 });

@@ -133,40 +133,6 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('form-success');
-    const formError = document.getElementById('form-error');
-
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        try {
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                body: new FormData(contactForm),
-            });
-            
-            if (response.ok) {
-                formSuccess.style.display = 'block';
-                formError.style.display = 'none';
-                contactForm.reset(); // Reset form fields on success
-            } else {
-                formError.style.display = 'block';
-                formSuccess.style.display = 'none';
-            }
-        } catch (error) {
-            console.error('Fetch error:', error);
-            formError.textContent = "Viga! Palun proovige uuesti.";
-            formError.style.display = 'block';
-            formSuccess.style.display = 'none';
-        }
-    });
-});
-
 
 // Preload images when hovering over elements with 'data-img' attributes
 function preloadImages() {
@@ -187,3 +153,4 @@ if (!recaptchaResponse) {
     return;
 }
 formData.append("g-recaptcha-response", recaptchaResponse); // Add reCAPTCHA token to form data
+
